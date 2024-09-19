@@ -17,7 +17,9 @@ public class Crab extends Actor
     {
         moveAndTurn();
         eat();
-        
+        if (isGameWon()) {
+            transitionToGameWonWorld();
+        }
     }
 
     /**
@@ -32,6 +34,9 @@ public class Crab extends Actor
         if (Greenfoot.isKeyDown("right")) {
             turn(3);
         }
+        if (isAtEdge()) {
+            turn(180);
+        }
     }
 
     /**
@@ -45,5 +50,36 @@ public class Crab extends Actor
             world.removeObject(worm);
             Greenfoot.playSound("eating.wav");
         }
+    }
+
+    /**
+     * 
+     */
+    public boolean isGameWon()
+    {
+        World world = getWorld();
+        if (world.getObjects(Worm.class).isEmpty()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    /**
+     * 
+     */
+    public void transitionToGameWonWorld()
+    {
+        World gameWonWorld =  new  GameWonWorld();
+        Greenfoot.setWorld(gameWonWorld);
+    }
+
+    /**
+     * The new speed. the value must be in the range (1..100)
+     */
+    static public void setSpeed(int speed)
+    {
+        setSpeed(40);
     }
 }

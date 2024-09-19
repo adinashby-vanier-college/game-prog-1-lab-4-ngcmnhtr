@@ -16,7 +16,11 @@
             <body>
                 <call expression="moveAndTurn()" expression-java="moveAndTurn()" enable="true"/>
                 <call expression="eat()" expression-java="eat()" enable="true"/>
-                <blank/>
+                <if condition="isGameWon()" condition-java="isGameWon()" enable="true">
+                    <ifStatements>
+                        <call expression="transitionToGameWonWorld()" expression-java="transitionToGameWonWorld()" enable="true"/>
+                    </ifStatements>
+                </if>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="moveAndTurn" enable="true">
@@ -35,6 +39,11 @@
                         <call expression="turn(3)" expression-java="turn(3)" enable="true"/>
                     </ifStatements>
                 </if>
+                <if condition="isAtEdge()" condition-java="isAtEdge()" enable="true">
+                    <ifStatements>
+                        <call expression="turn(180)" expression-java="turn(180)" enable="true"/>
+                    </ifStatements>
+                </if>
             </body>
         </method>
         <method access="public" type="void" type-java="void" name="eat" enable="true">
@@ -50,6 +59,41 @@
                         <call expression="Greenfoot.playSound(&quot;eating.wav&quot;)" expression-java="Greenfoot.playSound(&quot;eating.wav&quot;)" enable="true"/>
                     </ifStatements>
                 </if>
+            </body>
+        </method>
+        <method access="public" type="boolean" type-java="boolean" name="isGameWon" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="World" type-java="World" name="world" value="getWorld()" value-java="getWorld()" enable="true"/>
+                <if condition="world.getObjects(Worm.class).isEmpty()" condition-java="world.getObjects(Worm.class).isEmpty()" enable="true">
+                    <ifStatements>
+                        <return value="true" value-java="true" enable="true"/>
+                    </ifStatements>
+                    <else>
+                        <return value="false" value-java="false" enable="true"/>
+                    </else>
+                </if>
+            </body>
+        </method>
+        <method access="public" type="void" type-java="void" name="transitionToGameWonWorld" enable="true">
+            <javadoc xml:space="preserve"/>
+            <params/>
+            <throws/>
+            <body>
+                <variable type="World" type-java="World" name="gameWonWorld" value="new GameWonWorld()" value-java=" new GameWonWorld()" enable="true"/>
+                <call expression="Greenfoot.setWorld(gameWonWorld)" expression-java="Greenfoot.setWorld(gameWonWorld)" enable="true"/>
+            </body>
+        </method>
+        <method access="public" static="true" type="void" type-java="void" name="setSpeed" enable="true">
+            <javadoc xml:space="preserve">The new speed. the value must be in the range (1..100)</javadoc>
+            <params>
+                <params type="int" type-java="int" name="speed"/>
+            </params>
+            <throws/>
+            <body>
+                <call expression="setSpeed(40)" expression-java="setSpeed(40)" enable="true"/>
             </body>
         </method>
     </methods>
