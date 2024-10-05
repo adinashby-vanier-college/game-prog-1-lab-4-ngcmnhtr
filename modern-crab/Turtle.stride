@@ -14,20 +14,20 @@
             <params/>
             <throws/>
             <body>
-                <call expression="move ( 1 )" expression-java="move ( 1 )" enable="true"/>
-                <if condition="isAtEdge ( )" condition-java="isAtEdge ( )" enable="true">
+                <call expression="move(1)" expression-java="move(1)" enable="true"/>
+                <if condition="isAtEdge()" condition-java="isAtEdge()" enable="true">
                     <ifStatements>
-                        <call expression="turn ( 17 )" expression-java="turn ( 17 )" enable="true"/>
+                        <call expression="turn(17)" expression-java="turn(17)" enable="true"/>
                     </ifStatements>
                 </if>
-                <if condition="Greenfoot . isKeyDown ( &quot;z&quot; )" condition-java="Greenfoot . isKeyDown ( &quot;z&quot; )" enable="true">
+                <if condition="Greenfoot.isKeyDown(&quot;z&quot;)" condition-java="Greenfoot.isKeyDown(&quot;z&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="turn ( - 1 )" expression-java="turn ( - 1 )" enable="true"/>
+                        <call expression="turn(-1)" expression-java="turn(-1)" enable="true"/>
                     </ifStatements>
                 </if>
-                <if condition="Greenfoot . isKeyDown ( &quot;c&quot; )" condition-java="Greenfoot . isKeyDown ( &quot;c&quot; )" enable="true">
+                <if condition="Greenfoot.isKeyDown(&quot;c&quot;)" condition-java="Greenfoot.isKeyDown(&quot;c&quot;)" enable="true">
                     <ifStatements>
-                        <call expression="turn ( 1 )" expression-java="turn ( 1 )" enable="true"/>
+                        <call expression="turn(1)" expression-java="turn(1)" enable="true"/>
                     </ifStatements>
                 </if>
             </body>

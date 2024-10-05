@@ -75,7 +75,7 @@ public class Lobster extends Actor
      */
     public void transitionToGameOverWorld()
     {
-        World gameOverWorld =  new  GameOverWorld();
+        World gameOverWorld =  new GameOverWorld();
         Greenfoot.setWorld(gameOverWorld);
         Greenfoot.playSound("gameover.wav");
     }

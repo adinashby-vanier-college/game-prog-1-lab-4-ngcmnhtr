@@ -19,7 +19,7 @@ public class Worm extends Actor
             int x = getX();
             int y = getY();
             world.removeObject(this);
-            Lobster newLobster =  new  Lobster();
+            Lobster newLobster =  new Lobster();
             world.addObject(newLobster, x, y);
         }
     }
